@@ -22,7 +22,12 @@ puts "response should return expected response: " + "#{game.raw_summary('input_f
 
 puts "\n"
 puts "---#sorted_summary---".blue
-puts "response should be a Hash object: " + "#{game.sorted_summary('input_file.csv').is_a? Hash}".bool
+puts "printed response:".blue
+game.sorted_summary('input_file.csv').each do |name, pts|
+  puts "#{name}: #{pts}"
+end
+
+puts "\nresponse should be a Hash object: " + "#{game.sorted_summary('input_file.csv').is_a? Hash}".bool
 puts "response should return expected response: " + "#{game.sorted_summary('input_file.csv') === expected_sorted_summary}".bool
 
 puts "\n"
